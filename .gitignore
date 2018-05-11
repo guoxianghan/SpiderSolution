@@ -1,0 +1,15 @@
+*.log
+src/HttpHelper/bin/
+src/HttpHelper/obj/
+src/HttpTaskManage/bin/
+src/HttpTaskManage/obj/
+src/HttpTask/bin/
+src/HttpTask/obj/
+packages/
+bin/
+obj/
+.bin/
+.obj/
+!dll/
+.vs/
+vs/
