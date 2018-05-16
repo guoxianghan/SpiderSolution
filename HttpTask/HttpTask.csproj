@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpSpiderTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,9 +62,9 @@
       <Project>{0C34A621-0C58-4F8E-9313-02231B235EDC}</Project>
       <Name>HttpHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HttpTaskManage\HttpTaskManage.csproj">
+    <ProjectReference Include="..\HttpTaskManage\HttpTaskDataBase.csproj">
       <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
-      <Name>HttpTaskManage</Name>
+      <Name>HttpTaskDataBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

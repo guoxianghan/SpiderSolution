@@ -1,18 +1,18 @@
-namespace HttpTaskManage.Migrations
+namespace HttpTaskDataBase.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HttpTaskManage.HttpTaskDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<HttpTaskDataBase.HttpTaskDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(HttpTaskManage.HttpTaskDbContext context)
+        protected override void Seed(HttpTaskDataBase.HttpTaskDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

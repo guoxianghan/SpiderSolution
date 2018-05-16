@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HttpTaskManage
+namespace HttpTaskDataBase
 {
    public enum TaskStatus
     {

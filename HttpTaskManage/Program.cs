@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HttpTaskManage
+namespace HttpTaskDataBase
 {
     class Program
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Text;
 
-namespace HttpTaskManage
+namespace HttpTaskDataBase
 {
     public class HttpTaskDbContext : DbContext
     {
