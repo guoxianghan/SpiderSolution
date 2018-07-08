@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B091087-D44C-4B5A-A3EC-AE0050BC4715}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>HttpTask</RootNamespace>
-    <AssemblyName>HttpTask</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <ProjectGuid>{7AE5CB8C-1E87-4842-B9DC-F87EBB711E53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HttpTaskManage</RootNamespace>
+    <AssemblyName>HttpTaskManage</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
@@ -38,8 +42,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,26 +57,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Cookie.cs" />
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="FilenameExtension.cs" />
+    <Compile Include="HttpMethod.cs" />
+    <Compile Include="HttpRequestCfg.cs" />
+    <Compile Include="HttpRequestChildCfg.cs" />
+    <Compile Include="HttpResultCfg.cs" />
+    <Compile Include="PostDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBContext\HttpTaskDbContext.csproj">
-      <Project>{0b4416c5-7511-4f1f-a4ff-72d2df37f2b1}</Project>
-      <Name>HttpTaskDbContext</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HttpHelper\HttpHelper.csproj">
-      <Project>{0C34A621-0C58-4F8E-9313-02231B235EDC}</Project>
-      <Name>HttpHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
-      <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
-      <Name>HttpTaskModel</Name>
-    </ProjectReference>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

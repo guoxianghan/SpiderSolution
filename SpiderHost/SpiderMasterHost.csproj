@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B091087-D44C-4B5A-A3EC-AE0050BC4715}</ProjectGuid>
+    <ProjectGuid>{4F4E5F54-0CF6-4AA6-ACB1-1BCA17678936}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HttpTask</RootNamespace>
-    <AssemblyName>HttpTask</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpiderMasterHost</RootNamespace>
+    <AssemblyName>SpiderMasterHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,16 +29,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,21 +48,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBContext\HttpTaskDbContext.csproj">
-      <Project>{0b4416c5-7511-4f1f-a4ff-72d2df37f2b1}</Project>
-      <Name>HttpTaskDbContext</Name>
+    <ProjectReference Include="..\SpiderContract\SpiderContract.csproj">
+      <Project>{6990c505-510e-49a5-a8bd-34d292ca617a}</Project>
+      <Name>SpiderContract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HttpHelper\HttpHelper.csproj">
-      <Project>{0C34A621-0C58-4F8E-9313-02231B235EDC}</Project>
-      <Name>HttpHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
-      <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
-      <Name>HttpTaskModel</Name>
+    <ProjectReference Include="..\SpiderService\SpiderService.csproj">
+      <Project>{359E0B2B-5E65-4DC0-9E72-EC720C29600D}</Project>
+      <Name>SpiderService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

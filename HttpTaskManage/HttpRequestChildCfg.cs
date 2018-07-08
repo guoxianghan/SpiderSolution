@@ -1,10 +1,10 @@
-﻿using HttpHelper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net;
 using System.Text;
 
-namespace HttpTaskDataBase
+namespace HttpTaskModel
 {
     public class HttpRequestChildCfg : EntityBase
     {
@@ -69,14 +69,14 @@ namespace HttpTaskDataBase
         /// 最大连接数 默认1024
         /// </summary>
         public int Connectionlimit { get; set; } = 1024;
-        /// <summary>
-        /// json cookie
-        /// </summary>
-        public string Cookie { get; set; }
         public string Upgrade_Insecure_Requests { get; set; }
         public string Accept_Language { get; set; }
         public string Cache_Control { get; set; }
         public string Connection { get; set; }
+        /// <summary>
+        /// json cookie
+        /// </summary>
+        public string Cookie { get; set; }
         [NotMapped]
         public ICollection<Cookie> CookieCollection
         {
@@ -107,5 +107,6 @@ namespace HttpTaskDataBase
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(Header);
             }
         }
+         
     }
 }

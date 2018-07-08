@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HttpTaskDataBase
+namespace HttpTaskModel
 {
     /// </summary>
     public enum PostDataType
