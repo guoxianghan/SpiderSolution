@@ -1,6 +1,5 @@
-namespace HttpTaskManage.Migrations
+namespace DBContext.Migrations
 {
-    using HttpTaskModel;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,28 +9,15 @@ namespace HttpTaskManage.Migrations
     {
         public Configuration()
         {
-            
             AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(HttpTaskDbContext.HttpTaskDBContext context)
         {
-            
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-            var e = new HttpRequestChildCfg() { Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", CreatedTime = DateTime.Now, Url = "http://m.ctrip.com/html5/hotel/sitemap-qingdao7", Host = "m.ctrip.com", Cookie = "", Encoding = "utf-8", Method = HttpMethod.GET, Referer = "", Origin = "", UACPU = "", UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0", x_requested_with = "", WebName = "", ResponseType = FilenameExtension.Text, Upgrade_Insecure_Requests = "1", Accept_Encoding = "gzip, deflate, sdch", Accept_Language = "zh-CN,zh;q=0.8", Cache_Control = "max-age=0", Connection = "keep-live" };
-            context.HttpRequestChildCfg.AddOrUpdate(e);
-            context.SaveChanges();
+            //  to avoid creating duplicate seed data.
         }
     }
 }

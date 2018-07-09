@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
 using System.Text;
 
@@ -20,6 +21,8 @@ namespace HttpTaskModel
         #endregion
         public string FullText { get; set; }
         public byte[] Binary { get; set; }
-        public long TaskId { get; set; }
+        [ForeignKey("Target")]
+        public long RequstId { get; set; }
+        public HttpTaskModel.HttpRequestChildCfg Target { get; set; }
     }
 }

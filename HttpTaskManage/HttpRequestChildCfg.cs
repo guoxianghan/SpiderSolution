@@ -8,6 +8,9 @@ namespace HttpTaskModel
 {
     public class HttpRequestChildCfg : EntityBase
     {
+        public HttpRequestCfg Target { get; set; }
+        [ForeignKey("Target")]
+        public long HttpRequestId { get; set; }
         public string WebName { get; set; }
         /// <summary>
         /// 步骤名称
@@ -20,7 +23,7 @@ namespace HttpTaskModel
         /// <summary>
         /// 请求规则表达式,后期扩展
         /// </summary>
-        public string Quartz { get; set; } 
+        public string Quartz { get; set; }
         /// <summary>
         /// 响应的文件类型 默认Text
         /// </summary>
@@ -107,6 +110,6 @@ namespace HttpTaskModel
                 return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(Header);
             }
         }
-         
+
     }
 }

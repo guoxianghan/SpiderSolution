@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 
 namespace SpiderClient
 {
@@ -13,7 +13,9 @@ namespace SpiderClient
     {
         static void Main(string[] args)
         {
-            ChannelFactory<IRequestContract> channelFactory = new ChannelFactory<IRequestContract>("MyService");
+            ChannelFactory<IRequestContract> channelFactory = new ChannelFactory<IRequestContract>("Request");
+            var client = channelFactory.CreateChannel();
+            var list = client.HttpRequestCfgGet("", -1);
         }
     }
 }

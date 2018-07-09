@@ -12,20 +12,21 @@ namespace HttpTaskDbContext
     {
         private string _ConnectionStrings;
 
-        public HttpTaskDBContext()
+        public HttpTaskDBContext() : base("name=SpiderTask")
         {
-            //_ConnectionStrings = System.Configuration.ConfigurationManager.ConnectionStrings["HttpTaskConnectionString"].ConnectionString; 
-
-            Database.Initialize(true);
+            Console.WriteLine("_ConnectionStrings");
+            //_ConnectionStrings = System.Configuration.ConfigurationManager.ConnectionStrings["HttpTaskDb"].ConnectionString;
+            //_ConnectionStrings = "Data Source=.;Pooling=true;  Min Pool Size=0;Max Pool Size=500; Initial Catalog=HttpTaskDb;User ID=sa;Password=123, providerName = System.Data.SqlClient";
+            //Database.Initialize(true);
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
         }
         public HttpTaskDBContext(string connectionStrings) : base(connectionStrings)
         {
             _ConnectionStrings = connectionStrings;
-            Database.Initialize(true);
+            //Database.Initialize(true);
         }
         public DbSet<HttpRequestCfg> HttpRequestCfg { get; set; }
         public DbSet<HttpRequestChildCfg> HttpRequestChildCfg { get; set; }
