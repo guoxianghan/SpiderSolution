@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -7,10 +8,16 @@ namespace HttpTaskModel
 {
     public class EntityBase
     {
+        public EntityBase()
+        {
+            Console.WriteLine(this.GetHashCode());
+        }
         [Key]
         public long Id { get; set; }
         public string Key { get; set; }
-        public DateTime? CreatedTime { get; set; }
+
+        [JsonIgnore]
+        public DateTime? CreatedTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 0未删除,1删除
         /// </summary>
@@ -21,6 +28,6 @@ namespace HttpTaskModel
         /// 任务顺序号
         /// </summary>
         public byte SeqNo { get; set; }
-        public TaskStatus TaskStatus { get; set; }
+        public TaskStatus TaskStatus { get; set; } = TaskStatus.Created;
     }
 }

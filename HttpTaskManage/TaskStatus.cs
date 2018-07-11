@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HttpTaskModel
 {
-   public enum TaskStatus
+    public enum TaskStatus
     {
         /// <summary>
         /// 创建
@@ -27,8 +27,20 @@ namespace HttpTaskModel
         /// </summary>
         Running,
         /// <summary>
-        /// 客户端完成
+        /// 服务端请求中断
         /// </summary>
+        Abort,
+        /// <summary>
+        /// 客户端确认中断或自行中断,(由于查询受限等)
+        /// </summary>
+        Aborted,
+        /// <summary>
+        ///服务端请求继续执行
+        /// </summary>
+        Continue,
+        /// <summary>
+        /// 客户端完成
+        /// </summary>        
         Complete,
         /// <summary>
         /// 任务失败

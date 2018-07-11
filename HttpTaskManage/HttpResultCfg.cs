@@ -17,12 +17,18 @@ namespace HttpTaskModel
         /// </summary>
         public HttpStatusCode HttpStatusCode { get; set; }
         #region MyRegion
- 
+
         #endregion
         public string FullText { get; set; }
         public byte[] Binary { get; set; }
         [ForeignKey("Target")]
         public long RequstId { get; set; }
         public HttpTaskModel.HttpRequestChildCfg Target { get; set; }
+
+        public int Page { get; set; }
+        /// <summary>
+        /// 查询关键字
+        /// </summary>
+        public string SearchKey { get; set; }
     }
 }

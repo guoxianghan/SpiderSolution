@@ -12,6 +12,7 @@ using HttpTaskDbContext;
 using System.Data.Entity;
 using log4net;
 using System.Reflection;
+using HttpTaskModel;
 
 namespace SpiderService
 {
@@ -21,7 +22,7 @@ namespace SpiderService
         //static List<IResponseCallback> subscribers = new List<IResponseCallback>();
         //private IResponseCallback _callback;
         private ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        public ResponseBoolBase HttpRequestCfgAdd(HttpRequestCfgDataUI data)
+        public ResponseBoolBase HttpRequestCfgAdd(HttpRequestCfg data)
         {
             ResponseBoolBase obj = new ResponseBoolBase();
             try
@@ -53,11 +54,10 @@ namespace SpiderService
             {
                 datapro.EnterReadLock();
                 HttpTaskDBContext db = new HttpTaskDBContext();
-                var d = db.HttpRequestCfg.Where(x => ((x.WebName.Trim() == webname.Trim() || string.IsNullOrEmpty(webname)) || (level == 0 ? x.Level >= 0 : x.Level == level)) && x.IsDelete == false).Include(x => x.HttpRequestChildCfgs);
-                int i = db.SaveChanges();
-                //if (i == 0)
-                //    obj.IsSuccess = false;
-                //else obj.IsSuccess = true;
+                //db.ContextOptions.ProxyCreationEnabled = false;
+                //var d = db.HttpRequestCfg.Where(x => ((x.WebName.Trim() == webname.Trim() || string.IsNullOrEmpty(webname)) || (level == 0 ? x.Level >= 0 : x.Level == level)) && x.IsDelete == false).Include(x => x.HttpRequestChildCfgs);
+                var d = db.HttpRequestCfg.Where(x => ((x.WebName.Trim() == webname.Trim() || string.IsNullOrEmpty(webname)) || (level == -1 ? x.Level >= 0 : x.Level == level)) && x.IsDelete == false).Include(x => x.HttpRequestChildCfgs);
+
                 foreach (var item in d)
                 {
                     var o = new HttpRequestCfgDataUI() { Cookie = item.Cookie, Level = item.Level, CreatedTime = item.CreatedTime, DeletedTime = item.DeletedTime, HasChildTask = item.HasChildTask, Host = item.Host, Id = item.Id, Key = item.Key, IsDelete = item.IsDelete, ProcessName = item.ProcessName, Quartz = item.Quartz, RequestRule = item.RequestRule, ResponseType = item.ResponseType, SeqNo = item.SeqNo, TaskStatus = item.TaskStatus, TaskTimeOut = item.TaskTimeOut, UpdatedTime = item.UpdatedTime, WebName = item.WebName };

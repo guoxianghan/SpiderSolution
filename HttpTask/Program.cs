@@ -43,11 +43,11 @@ namespace HttpTask
                     PostdataByte = item.PostdataByte
                 };
                 _LoginServer.Cookies = new System.Net.CookieContainer();
-                foreach (var coo in item.CookieCollection)
+                foreach (var coo in item.CookieCollection())
                 {
                     _LoginServer.Cookies.Add(new System.Net.Cookie(coo.Name, coo.Value) { Domain = coo.Domain });
                 }
-                foreach (var head in item.Headers)
+                foreach (var head in item.Headers())
                 {
                     _LoginServer.HeaderCollection.Add(head.Key, head.Value);
                 }

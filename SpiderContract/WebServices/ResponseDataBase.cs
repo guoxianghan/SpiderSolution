@@ -12,7 +12,7 @@ namespace SpiderContract.WebServices
     }
     public class ResponseDataBase<T> : ResponseBase
     {
-        public List<T> data { get; set; }
+        public List<T> data { get; set; } = new List<T>();
     }
     public class ResponseBoolBase : ResponseBase
     {

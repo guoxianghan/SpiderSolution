@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
@@ -8,7 +9,14 @@ namespace HttpTaskModel
 {
     public class HttpRequestChildCfg : EntityBase
     {
+        public HttpRequestChildCfg()
+        {
+            Console.WriteLine(this.GetHashCode());
+        }
+        [JsonIgnore]
         public HttpRequestCfg Target { get; set; }
+
+        [JsonIgnore]
         [ForeignKey("Target")]
         public long HttpRequestId { get; set; }
         public string WebName { get; set; }
@@ -53,7 +61,7 @@ namespace HttpTaskModel
         public string UACPU { get; set; }
         public string x_requested_with { get; set; }
         public string ContentType { get; set; }
-        public string UserAgent { get; set; }
+        public string UserAgent { get; set; } = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36";
         /// <summary>
         ///  获取或设置一个值 默认值true，该值指示是否与 Internet 资源建立持久性连接默认为true。
         /// </summary>
@@ -80,15 +88,14 @@ namespace HttpTaskModel
         /// json cookie
         /// </summary>
         public string Cookie { get; set; }
-        [NotMapped]
-        public ICollection<Cookie> CookieCollection
+        //[JsonIgnore]
+        //[NotMapped]
+        public ICollection<Cookie> CookieCollection()
         {
-            get
-            {
-                if (string.IsNullOrEmpty(Cookie))
-                    return new List<Cookie>();
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<Cookie>>(Cookie);
-            }
+            if (string.IsNullOrEmpty(Cookie))
+                return new List<Cookie>();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<Cookie>>(Cookie);
+
         }
 
         /// <summary>
@@ -98,17 +105,16 @@ namespace HttpTaskModel
         /// <summary>
         /// 是否重定向
         /// </summary>
-        public bool Allowautoredirect { get; set; } = false;
+        public bool Allowautoredirect { get; set; } = true;
         public string Header { get; set; }
-        [NotMapped]
-        public Dictionary<string, string> Headers
+
+        public Dictionary<string, string> Headers()
         {
-            get
-            {
-                if (string.IsNullOrEmpty(Cookie))
-                    return new Dictionary<string, string>();
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(Header);
-            }
+
+            if (string.IsNullOrEmpty(Header))
+                return new Dictionary<string, string>();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(Header);
+
         }
 
     }

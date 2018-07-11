@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,6 +9,11 @@ namespace HttpTaskModel
 {
     public class HttpRequestCfg : EntityBase
     {
+        public HttpRequestCfg()
+        {
+            Console.WriteLine(this.GetHashCode());
+        }
+        [JsonIgnore]
         public List<HttpRequestChildCfg> HttpRequestChildCfgs { get; set; } = new List<HttpRequestChildCfg>();
         public string WebName { get; set; }
         /// <summary>
@@ -41,19 +47,40 @@ namespace HttpTaskModel
 
         public string Host { get; set; }
 
+        #region 当使用此参数时,与HttpRequestChildCfg 为1V1
+        /// <summary>
+        /// 已经查询到第几页
+        /// </summary>
+        public int Page { get; set; } = -1;
+        /// <summary>
+        /// 从第几页开始
+        /// </summary>
+        public int PageMin { get; set; } = -1;
+        /// <summary>
+        /// 到第几页结束
+        /// </summary>
+        public int PageMax { get; set; } = -1;
+        /// <summary>
+        /// 已经查询到当前参数
+        /// </summary>
+        public string SearchKey { get; set; } = string.Empty;
+        /// <summary>
+        /// 总共多少参数
+        /// </summary>
+        public string SearchKeys { get; set; } = string.Empty;
+        #endregion
         /// <summary>
         /// json cookie
         /// </summary>
         public string Cookie { get; set; }
-        [NotMapped]
-        public ICollection<Cookie> CookieCollection
+
+        public ICollection<Cookie> CookieCollection()
         {
-            get
-            {
-                if (string.IsNullOrEmpty(Cookie))
-                    return new List<Cookie>();
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<Cookie>>(Cookie);
-            }
+
+            if (string.IsNullOrEmpty(Cookie))
+                return new List<Cookie>();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<Cookie>>(Cookie);
+
         }
 
     }
