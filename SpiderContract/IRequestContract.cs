@@ -39,6 +39,8 @@ namespace SpiderContract
         [WebInvoke(UriTemplate = "HttpTask/HttpRequestCfgAdd", Method = "POST",
                 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [ServiceKnownType(typeof(ResponseBoolBase))]
+        [ServiceKnownType(typeof(HttpRequestCfg))]
+
         ResponseBoolBase HttpRequestCfgAdd(HttpRequestCfg data);
 
         [OperationContract]

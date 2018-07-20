@@ -56,6 +56,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HttpHelper\HttpHelper.csproj">
+      <Project>{0c34a621-0c58-4f8e-9313-02231b235edc}</Project>
+      <Name>HttpHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
+      <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
+      <Name>HttpTaskModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpiderContract\SpiderContract.csproj">
       <Project>{6990c505-510e-49a5-a8bd-34d292ca617a}</Project>
       <Name>SpiderContract</Name>

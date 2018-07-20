@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Text;
 using HttpTaskModel;
+using HttpTaskManage.ModelEntityConfiguration;
 
 namespace HttpTaskDbContext
 {
@@ -21,7 +22,11 @@ namespace HttpTaskDbContext
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.RegisterEntityType(typeof(HttpRequestCfg));
+            Database.SetInitializer<HttpTaskDBContext>(null);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new HttpRequestCfgEntityConfiguration());
+            //modelBuilder.Entity<HttpRequestChildCfg>().HasRequired(x=>x.HttpRequestId).WithMany(d=>d.)
+            //modelBuilder.RegisterEntityType(typeof(HttpRequestCfg));
         }
         public HttpTaskDBContext(string connectionStrings) : base(connectionStrings)
         {

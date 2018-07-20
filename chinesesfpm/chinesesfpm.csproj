@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B4416C5-7511-4F1F-A4FF-72D2DF37F2B1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBContext</RootNamespace>
-    <AssemblyName>DBContext</AssemblyName>
+    <ProjectGuid>{4761CA08-721E-4DA7-AD88-EC9ED1C164E5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>chinesesfpm</RootNamespace>
+    <AssemblyName>chinesesfpm</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -29,20 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,36 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpTaskDbContext.cs" />
-    <Compile Include="Migrations\201807201715436_201807090456542_AutomaticMigration.cs" />
-    <Compile Include="Migrations\201807201715436_201807090456542_AutomaticMigration.Designer.cs">
-      <DependentUpon>201807201715436_201807090456542_AutomaticMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807201801398_cerpath.cs" />
-    <Compile Include="Migrations\201807201801398_cerpath.Designer.cs">
-      <DependentUpon>201807201801398_cerpath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonUtl\CommonUtl.csproj">
+      <Project>{ad34c102-12c4-4619-81a7-ccdef91e40b2}</Project>
+      <Name>CommonUtl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
-      <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
+      <Project>{7AE5CB8C-1E87-4842-B9DC-F87EBB711E53}</Project>
       <Name>HttpTaskModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807201715436_201807090456542_AutomaticMigration.resx">
-      <DependentUpon>201807201715436_201807090456542_AutomaticMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807201801398_cerpath.resx">
-      <DependentUpon>201807201801398_cerpath.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\SpiderContract\SpiderContract.csproj">
+      <Project>{6990C505-510E-49A5-A8BD-34D292CA617A}</Project>
+      <Name>SpiderContract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

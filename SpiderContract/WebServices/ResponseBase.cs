@@ -10,7 +10,7 @@ namespace SpiderContract.WebServices
     {
         public ResponseError Error { get; set; }
 
-        public string err { get; set; }
+        //public string err { get; set; }
         /// <summary>
         /// Helper function to easily return general error message in case 
         /// of an unexpected exception. 
