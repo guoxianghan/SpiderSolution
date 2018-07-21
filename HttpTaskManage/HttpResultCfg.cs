@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HttpTaskManage;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
 using System.Runtime.Serialization;
@@ -10,6 +12,9 @@ namespace HttpTaskModel
     [DataContractAttribute(IsReference =true )]
     public class HttpResultCfg : EntityBase
     {
+        [MaxLength(255)]
+        [DataMember]
+        public string WebName { get; set; }
         [DataMember]
         /// <summary>
         /// 响应的文件类型
@@ -33,12 +38,17 @@ namespace HttpTaskModel
         [DataMember]
         public HttpTaskModel.HttpRequestChildCfg Target { get; set; }
         [DataMember]
-
         public int Page { get; set; }
+        [DataMember]
+        public DateTime? Date { get; set; }
         [DataMember]
         /// <summary>
         /// 查询关键字
         /// </summary>
         public string SearchKey { get; set; }
+        [DataMember]
+        public AnalyseHtmlStatus AnalyseStatus { get; set; }
+        [DataMember]
+        public int Level { get; set; }
     }
 }

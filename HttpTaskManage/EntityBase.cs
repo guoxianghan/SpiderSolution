@@ -18,8 +18,7 @@ namespace HttpTaskModel
         [Key]
         public long Id { get; set; }
         [DataMember]
-        [MaxLength(255)]
-        public string Key { get; set; }
+        public Guid Key { get; set; }
 
         [DataMember]
         public DateTime? CreatedTime { get; set; } = DateTime.Now;

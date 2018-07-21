@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalyseHtmlStatus.cs" />
     <Compile Include="Cookie.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="FilenameExtension.cs" />

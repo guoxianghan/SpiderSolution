@@ -13,6 +13,7 @@ using System.Data.Entity;
 using log4net;
 using System.Reflection;
 using HttpTaskModel;
+using HttpTaskManage;
 
 namespace SpiderService
 {
@@ -246,15 +247,16 @@ namespace SpiderService
             return obj;
         }
 
+        #region 结果处理
 
         public ResponseBoolBase HttpResultCfgAdd(HttpResultCfgDataUI data)
         {
             ResponseBoolBase obj = new ResponseBoolBase();
             try
             {
-                datapro.EnterWriteLock();
+                //datapro.EnterWriteLock();
                 HttpTaskDBContext db = new HttpTaskDBContext();
-                HttpResultCfg d = new HttpResultCfg() { Binary = data.Binary, CreatedTime = data.CreatedTime, DeletedTime = data.DeletedTime, FullText = data.FullText, HttpStatusCode = data.HttpStatusCode, Id = data.Id, info = data.info, IsDelete = data.IsDelete, Key = data.Key, Page = data.Page, RequstChildId = data.RequstChildId, ResponseType = data.ResponseType, SearchKey = data.SearchKey, SeqNo = data.SeqNo, TaskStatus = data.TaskStatus, UpdatedTime = data.UpdatedTime };
+                HttpResultCfg d = new HttpResultCfg() { Binary = data.Binary, CreatedTime = data.CreatedTime, DeletedTime = data.DeletedTime, FullText = data.FullText, HttpStatusCode = data.HttpStatusCode, Id = data.Id, info = data.info, IsDelete = data.IsDelete, Key = data.Key, Page = data.Page, RequstChildId = data.RequstChildId, ResponseType = data.ResponseType, SearchKey = data.SearchKey, SeqNo = data.SeqNo, TaskStatus = data.TaskStatus, UpdatedTime = data.UpdatedTime, AnalyseStatus = HttpTaskManage.AnalyseHtmlStatus.Created, WebName = data.WebName, Date = data.Date };
                 db.HttpResultCfg.Add(d);
                 int i = db.SaveChanges();
                 if (i == 0)
@@ -270,7 +272,28 @@ namespace SpiderService
             }
             finally
             {
-                datapro.ExitWriteLock();
+                //datapro.ExitWriteLock();
+            }
+            return obj;
+        }
+
+        public ResponseDataBase<HttpResultCfg> HttpResultCfgGet(string webname, int level, int count)
+        {
+            ResponseDataBase<HttpResultCfg> obj = new ResponseDataBase<HttpResultCfg>();
+            try
+            {
+                datapro.EnterReadLock();
+                HttpTaskDBContext db = new HttpTaskDBContext();
+                var d = db.HttpResultCfg.Where(x => x.IsDelete == false).Take(count);
+                obj.data.AddRange(d);
+            }
+            catch (Exception ex)
+            {
+                obj = ResponseBase.GetResponseByException<ResponseDataBase<HttpResultCfg>>(ex);
+            }
+            finally
+            {
+                datapro.ExitReadLock();
             }
             return obj;
         }
@@ -280,7 +303,7 @@ namespace SpiderService
             ResponseBoolBase obj = new ResponseBoolBase();
             try
             {
-                datapro.EnterWriteLock();
+                //datapro.EnterWriteLock();
                 HttpTaskDBContext db = new HttpTaskDBContext();
                 var d = db.HttpResultCfg.Find(data.Id);
                 d = data;
@@ -291,9 +314,38 @@ namespace SpiderService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 obj.IsSuccess = false;
                 obj = ResponseBase.GetResponseByException<ResponseBoolBase>(ex);
                 logger.ErrorFormat("HttpResultCfgSave", ex);
+            }
+            finally
+            {
+                //datapro.ExitWriteLock();
+            }
+            return obj;
+        }
+
+        public ResponseBoolBase HttpResultSaveStatus(long id, HttpTaskModel.TaskStatus status, AnalyseHtmlStatus astatus)
+        {
+            ResponseBoolBase obj = new ResponseBoolBase();
+            try
+            {
+                datapro.EnterWriteLock();
+                HttpTaskDBContext db = new HttpTaskDBContext();
+                var d = db.HttpResultCfg.Find(id);
+                d.TaskStatus = status;
+                d.AnalyseStatus = astatus;
+                int i = db.SaveChanges();
+                if (i == 0)
+                    obj.IsSuccess = false;
+                else obj.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                obj.IsSuccess = false;
+                obj = ResponseBase.GetResponseByException<ResponseBoolBase>(ex);
             }
             finally
             {
@@ -301,6 +353,7 @@ namespace SpiderService
             }
             return obj;
         }
+        #endregion
 
 
 

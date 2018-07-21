@@ -68,6 +68,22 @@
     <Compile Include="Migrations\201807210949239_rename.Designer.cs">
       <DependentUpon>201807210949239_rename.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807211126075_rename1.cs" />
+    <Compile Include="Migrations\201807211126075_rename1.Designer.cs">
+      <DependentUpon>201807211126075_rename1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211131513_rekey.cs" />
+    <Compile Include="Migrations\201807211131513_rekey.Designer.cs">
+      <DependentUpon>201807211131513_rekey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211139306_addanalyse.cs" />
+    <Compile Include="Migrations\201807211139306_addanalyse.Designer.cs">
+      <DependentUpon>201807211139306_addanalyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807211221234_addno.cs" />
+    <Compile Include="Migrations\201807211221234_addno.Designer.cs">
+      <DependentUpon>201807211221234_addno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +93,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonUtl\CommonUtl.csproj">
+      <Project>{AD34C102-12C4-4619-81A7-CCDEF91E40B2}</Project>
+      <Name>CommonUtl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
       <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
       <Name>HttpTaskModel</Name>
@@ -94,6 +114,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807210949239_rename.resx">
       <DependentUpon>201807210949239_rename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211126075_rename1.resx">
+      <DependentUpon>201807211126075_rename1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211131513_rekey.resx">
+      <DependentUpon>201807211131513_rekey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211139306_addanalyse.resx">
+      <DependentUpon>201807211139306_addanalyse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807211221234_addno.resx">
+      <DependentUpon>201807211221234_addno.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

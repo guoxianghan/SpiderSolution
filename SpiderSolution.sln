@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E59367CF-29B7-431C-9140-E4D8FFF99E10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpHelper", "HttpHelper\HttpHelper.csproj", "{0C34A621-0C58-4F8E-9313-02231B235EDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpTask", "HttpTask\HttpTask.csproj", "{9B091087-D44C-4B5A-A3EC-AE0050BC4715}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiderTask", "HttpTask\SpiderTask.csproj", "{9B091087-D44C-4B5A-A3EC-AE0050BC4715}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpTaskModel", "HttpTaskManage\HttpTaskModel.csproj", "{7AE5CB8C-1E87-4842-B9DC-F87EBB711E53}"
 EndProject

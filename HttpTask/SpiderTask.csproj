@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9B091087-D44C-4B5A-A3EC-AE0050BC4715}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HttpTask</RootNamespace>
-    <AssemblyName>HttpTask</AssemblyName>
+    <RootNamespace>SpiderTask</RootNamespace>
+    <AssemblyName>SpiderTask</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,14 @@
     <ProjectReference Include="..\HttpTaskManage\HttpTaskModel.csproj">
       <Project>{7ae5cb8c-1e87-4842-b9dc-f87ebb711e53}</Project>
       <Name>HttpTaskModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpiderClient\SpiderClient.csproj">
+      <Project>{e61d0288-f10a-4219-a98d-3c8291e6dc8e}</Project>
+      <Name>SpiderClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpiderContract\SpiderContract.csproj">
+      <Project>{6990C505-510E-49A5-A8BD-34D292CA617A}</Project>
+      <Name>SpiderContract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

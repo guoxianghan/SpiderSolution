@@ -54,7 +54,7 @@ namespace SpiderClient
                 _HotelServer.Url = string.Format(_HotelServer.Url, data.CurrentDate.Value.AddDays(1).ToString("yyyy-MM-DD HH:mm:ss"), data.CurrentDate.Value.ToString("yyyy-MM-DD HH:mm:ss"));
                 _HotelServer.PostData = string.Format(_HotelServer.PostData, data.CurrentDate.Value.AddDays(1).ToString("yyyy-MM-DD HH:mm:ss"), data.CurrentDate.Value.ToString("yyyy-MM-DD HH:mm:ss"));
                 _Result = _HotelServer.GetHttpResult();
-                bool r = saveresult(_Result, item,data, out info);
+                bool r = saveresult(_Result, item, data, out info);
                 data.info = info;
                 if (!r)
                 {
@@ -71,7 +71,7 @@ namespace SpiderClient
             info = "";
             try
             {
-                HttpResultCfgDataUI re = new HttpResultCfgDataUI() { Binary = _Result.ResultByte, CreatedTime = DateTime.Now, FullText = _Result.Html, HttpStatusCode = _Result.StatusCode, Key = item.Key, RequstChildId = item.Id, ResponseType = item.ResponseType, SeqNo = item.SeqNo, TaskStatus = HttpTaskModel.TaskStatus.Complete };
+                HttpResultCfgDataUI re = new HttpResultCfgDataUI() { Binary = _Result.ResultByte, CreatedTime = DateTime.Now, FullText = _Result.Html, HttpStatusCode = _Result.StatusCode, Key = item.Key, RequstChildId = item.Id, ResponseType = item.ResponseType, SeqNo = item.SeqNo, TaskStatus = HttpTaskModel.TaskStatus.Complete, Page = data.CurrentPage, Date = data.CurrentDate, SearchKey = data.SearchKey, WebName = data.WebName, info = data.info };
                 var r = _RequestContract.HttpResultCfgAdd(re);
                 return r.IsSuccess;
             }
@@ -126,7 +126,7 @@ namespace SpiderClient
             {
                 _HotelServer = _createHttpserver(item);
                 _Result = _HotelServer.GetHttpResult();
-                bool r = saveresult(_Result, item,data, out info);
+                bool r = saveresult(_Result, item, data, out info);
                 data.info = info;
                 if (!r)
                 {

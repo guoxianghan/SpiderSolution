@@ -4,6 +4,7 @@ using System.Text;
 
 namespace HttpTaskModel
 {
+    [Flags]
     public enum TaskStatus
     {
         /// <summary>
@@ -51,4 +52,6 @@ namespace HttpTaskModel
         /// </summary>
         TimeOut
     }
+
+
 }
