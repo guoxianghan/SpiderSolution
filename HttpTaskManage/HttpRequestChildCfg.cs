@@ -13,7 +13,7 @@ namespace HttpTaskModel
     {
         public HttpRequestChildCfg()
         {
-            Console.WriteLine(this.GetHashCode());
+            //Console.WriteLine(this.GetHashCode());
         }
         [DataMember]
         public HttpRequestCfg Target { get; set; }
@@ -27,12 +27,7 @@ namespace HttpTaskModel
         /// <summary>
         /// 步骤名称
         /// </summary>
-        public string ProcessName { get; set; }
-        [DataMember]
-        /// <summary>
-        /// 请求规则:1默认一次,0无限次
-        /// </summary>
-        public byte RequestRule { get; set; } = 1;
+        public string ProcessName { get; set; } 
         [DataMember]
         /// <summary>
         /// 请求规则表达式,后期扩展
@@ -164,7 +159,6 @@ namespace HttpTaskModel
             if (string.IsNullOrEmpty(Header))
                 return new Dictionary<string, string>();
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(Header);
-
         }
 
     }

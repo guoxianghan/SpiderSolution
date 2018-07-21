@@ -60,6 +60,14 @@
     <Compile Include="Migrations\201807201801398_cerpath.Designer.cs">
       <DependentUpon>201807201801398_cerpath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807210844021_up.cs" />
+    <Compile Include="Migrations\201807210844021_up.Designer.cs">
+      <DependentUpon>201807210844021_up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807210949239_rename.cs" />
+    <Compile Include="Migrations\201807210949239_rename.Designer.cs">
+      <DependentUpon>201807210949239_rename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +88,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807201801398_cerpath.resx">
       <DependentUpon>201807201801398_cerpath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807210844021_up.resx">
+      <DependentUpon>201807210844021_up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807210949239_rename.resx">
+      <DependentUpon>201807210949239_rename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

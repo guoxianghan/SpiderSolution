@@ -112,6 +112,7 @@ namespace HttpHelper
                 #region byte
                 //处理网页Byte
                 byte[] ResponseByte = GetByte();
+                //result.ResultStream
                 result.ResultStream = new MemoryStream(ResponseByte);
                 #endregion
 
@@ -144,7 +145,7 @@ namespace HttpHelper
         private void SetEncoding(HttpServer item, HttpResult result, byte[] ResponseByte)
         {
             //是否返回Byte类型数据
-            if (item.ResultType == ResultType.Byte)
+            //if (item.ResultType == ResultType.Byte)
                 result.ResultByte = ResponseByte;
             try
             {

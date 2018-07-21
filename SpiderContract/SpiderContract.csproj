@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServices\Constants.cs" />
     <Compile Include="WebServices\Models\HttpRequestCfgDataUI.cs" />
+    <Compile Include="WebServices\Models\HttpRequestChildCfgDataUI.cs" />
     <Compile Include="WebServices\Models\HttpResultCfgDataUI.cs" />
     <Compile Include="WebServices\Requests\HttpResultCfgRequest.cs" />
     <Compile Include="WebServices\ResponseBase.cs" />

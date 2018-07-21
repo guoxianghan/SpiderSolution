@@ -12,7 +12,7 @@ namespace HttpTaskModel
     {
         public EntityBase()
         {
-            Console.WriteLine(this.GetHashCode());
+            //Console.WriteLine(this.GetHashCode());
         }
         [DataMember]
         [Key]
@@ -20,7 +20,7 @@ namespace HttpTaskModel
         [DataMember]
         [MaxLength(255)]
         public string Key { get; set; }
-         
+
         [DataMember]
         public DateTime? CreatedTime { get; set; } = DateTime.Now;
         [DataMember]
@@ -32,6 +32,8 @@ namespace HttpTaskModel
         public DateTime? UpdatedTime { get; set; }
         [DataMember]
         public DateTime? DeletedTime { get; set; }
+        [DataMember]
+        public string info { get; set; }
         [DataMember]
         /// <summary>
         /// 任务顺序号

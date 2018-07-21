@@ -18,7 +18,9 @@ namespace chinesesfpm
             var co = new List<Cookie>();
             co.Add(new Cookie() { Name = "PHPSESSID", Value = "qs4f6ttm7g5vl2rqiqh7aia7m1", Domain = "www.chinesesfpm.com" });
             Guid guid = Guid.NewGuid();
-            HttpRequestCfg obj = new HttpRequestCfg() { CreatedTime = DateTime.Now, HasChildTask = false, Host = "www.chinesesfpm.com", PageMax = 12, WebName = "chinesesfpm", TaskStatus = HttpTaskModel.TaskStatus.Created, PageMin = 1, Key = guid.ToString() };
+            HttpRequestCfg obj = new HttpRequestCfg() { CreatedTime = DateTime.Now, HasChildTask = false, Host = "www.chinesesfpm.com", PageMax = 20, WebName = "chinesesfpm", TaskStatus = HttpTaskModel.TaskStatus.Created, PageMin = 1, Key = guid.ToString(), SchedulerType = HttpTaskManage.SchedulerType.Page };
+            //obj.PageMax = 20;
+            //obj.PageMin = 1;
             obj.HttpRequestChildCfgs.Add(new HttpRequestChildCfg()
             {
                 Key = guid.ToString(),

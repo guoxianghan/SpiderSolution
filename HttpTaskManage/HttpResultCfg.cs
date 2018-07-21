@@ -29,7 +29,7 @@ namespace HttpTaskModel
         public byte[] Binary { get; set; }
         [DataMember]
         [ForeignKey("Target")]
-        public long RequstId { get; set; }
+        public long RequstChildId { get; set; }
         [DataMember]
         public HttpTaskModel.HttpRequestChildCfg Target { get; set; }
         [DataMember]

@@ -21,10 +21,21 @@ namespace SpiderContract
         /// <returns></returns>
         [OperationContract]
         [DataContractFormat]
-        [WebInvoke(UriTemplate = "HttpTask/HttpRequestCfgGet?webname={webname}&level={level}", Method = "GET",
+        [WebInvoke(UriTemplate = "HttpTask/HttpRequestCfgGet?webname={webname}&level={level}&status={status}", Method = "GET",
                 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [ServiceKnownType(typeof(ResponseDataBase<HttpRequestCfgDataUI>))]
-        ResponseDataBase<HttpRequestCfgDataUI> HttpRequestCfgGet(string webname, int level);
+        ResponseDataBase<HttpRequestCfgDataUI> HttpRequestCfgGet(string webname, int level, TaskStatus status);
+
+        /// <summary>
+        /// 获取指定数量的任务
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        [DataContractFormat]
+        [WebInvoke(UriTemplate = "HttpTask/HttpRequestCfgSingleGet?level={level}&count={count}", Method = "GET",
+                ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        [ServiceKnownType(typeof(ResponseDataBase<HttpRequestCfgDataUI>))]
+        ResponseDataBase<HttpRequestCfgDataUI> HttpRequestCfgSingleGet(int level, int count);
 
         [OperationContract]
         [DataContractFormat]
@@ -48,25 +59,25 @@ namespace SpiderContract
         [WebInvoke(UriTemplate = "HttpTask/HttpRequestChildCfgSave", Method = "POST",
                 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [ServiceKnownType(typeof(ResponseBoolBase))]
-        ResponseBoolBase HttpRequestChildCfgAdd(HttpRequestCfgDataUI data);
+        ResponseBoolBase HttpRequestChildCfgAdd(HttpRequestChildCfgDataUI data);
         [OperationContract]
         [DataContractFormat]
         [WebInvoke(UriTemplate = "HttpTask/HttpResultCfgAdd", Method = "POST",
                      ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [ServiceKnownType(typeof(ResponseBoolBase))]
         ResponseBoolBase HttpResultCfgAdd(HttpResultCfgDataUI data);
-        [OperationContract]
-        [DataContractFormat]
-        [WebInvoke(UriTemplate = "HttpTask/HttpResultCfgSave", Method = "POST",
-                     ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-        ResponseBoolBase HttpResultCfgSave(HttpResultCfgRequest data);
+        //[OperationContract]
+        //[DataContractFormat]
+        //[WebInvoke(UriTemplate = "HttpTask/HttpResultCfgSave", Method = "POST",
+        //             ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        //ResponseBoolBase HttpResultCfgAdd(HttpResultCfgRequest data);
 
         [OperationContract]
         [DataContractFormat]
         [WebInvoke(UriTemplate = "HttpTask/HttpRequestCfgSaveStatus", Method = "POST",
                 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         [ServiceKnownType(typeof(ResponseBoolBase))]
-        ResponseBoolBase HttpRequestCfgSaveStatus(long id, TaskStatus status);
+        ResponseBoolBase HttpRequestCfgSaveStatus(long id, TaskStatus status,int CurrentPage,DateTime? CurrentDate, string info = "");
         [OperationContract]
         [DataContractFormat]
         [WebInvoke(UriTemplate = "HttpTask/HttpRequestChildCfgSaveStatus", Method = "POST",

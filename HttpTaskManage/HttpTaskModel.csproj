@@ -68,6 +68,7 @@
     <Compile Include="ModelEntityConfiguration\HttpRequestCfgEntityConfiguration.cs" />
     <Compile Include="PostDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpiderType.cs" />
     <Compile Include="TaskStatus.cs" />
   </ItemGroup>
   <ItemGroup>
