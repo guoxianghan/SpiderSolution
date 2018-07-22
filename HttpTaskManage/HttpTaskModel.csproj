@@ -60,12 +60,13 @@
   <ItemGroup>
     <Compile Include="AnalyseHtmlStatus.cs" />
     <Compile Include="Cookie.cs" />
+    <Compile Include="DomainConfig.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="FilenameExtension.cs" />
     <Compile Include="HttpMethod.cs" />
     <Compile Include="HttpRequestCfg.cs" />
     <Compile Include="HttpRequestChildCfg.cs" />
-    <Compile Include="HttpResultCfg.cs" />
+    <Compile Include="HttpResponseCfg.cs" />
     <Compile Include="ModelEntityConfiguration\HttpRequestCfgEntityConfiguration.cs" />
     <Compile Include="PostDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

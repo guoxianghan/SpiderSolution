@@ -10,7 +10,7 @@ using System.Text;
 namespace HttpTaskModel
 {
     [DataContractAttribute(IsReference =true )]
-    public class HttpResultCfg : EntityBase
+    public class HttpResponseCfg : EntityBase
     {
         [MaxLength(255)]
         [DataMember]

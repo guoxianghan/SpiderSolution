@@ -256,7 +256,7 @@ namespace SpiderService
             {
                 //datapro.EnterWriteLock();
                 HttpTaskDBContext db = new HttpTaskDBContext();
-                HttpResultCfg d = new HttpResultCfg() { Binary = data.Binary, CreatedTime = data.CreatedTime, DeletedTime = data.DeletedTime, FullText = data.FullText, HttpStatusCode = data.HttpStatusCode, Id = data.Id, info = data.info, IsDelete = data.IsDelete, Key = data.Key, Page = data.Page, RequstChildId = data.RequstChildId, ResponseType = data.ResponseType, SearchKey = data.SearchKey, SeqNo = data.SeqNo, TaskStatus = data.TaskStatus, UpdatedTime = data.UpdatedTime, AnalyseStatus = HttpTaskManage.AnalyseHtmlStatus.Created, WebName = data.WebName, Date = data.Date };
+                HttpResponseCfg d = new HttpResponseCfg() { Binary = data.Binary, CreatedTime = data.CreatedTime, DeletedTime = data.DeletedTime, FullText = data.FullText, HttpStatusCode = data.HttpStatusCode, Id = data.Id, info = data.info, IsDelete = data.IsDelete, Key = data.Key, Page = data.Page, RequstChildId = data.RequstChildId, ResponseType = data.ResponseType, SearchKey = data.SearchKey, SeqNo = data.SeqNo, TaskStatus = data.TaskStatus, UpdatedTime = data.UpdatedTime, AnalyseStatus = HttpTaskManage.AnalyseHtmlStatus.Created, WebName = data.WebName, Date = data.Date };
                 db.HttpResultCfg.Add(d);
                 int i = db.SaveChanges();
                 if (i == 0)
@@ -277,9 +277,9 @@ namespace SpiderService
             return obj;
         }
 
-        public ResponseDataBase<HttpResultCfg> HttpResultCfgGet(string webname, int level, int count)
+        public ResponseDataBase<HttpResponseCfg> HttpResultCfgGet(string webname, int level, int count)
         {
-            ResponseDataBase<HttpResultCfg> obj = new ResponseDataBase<HttpResultCfg>();
+            ResponseDataBase<HttpResponseCfg> obj = new ResponseDataBase<HttpResponseCfg>();
             try
             {
                 datapro.EnterReadLock();
@@ -289,7 +289,7 @@ namespace SpiderService
             }
             catch (Exception ex)
             {
-                obj = ResponseBase.GetResponseByException<ResponseDataBase<HttpResultCfg>>(ex);
+                obj = ResponseBase.GetResponseByException<ResponseDataBase<HttpResponseCfg>>(ex);
             }
             finally
             {

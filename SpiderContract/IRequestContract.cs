@@ -100,7 +100,7 @@ namespace SpiderContract
         [WebInvoke(UriTemplate = "HttpResult/HttpResultCfgGet", Method = "POST",
                 ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
         [ServiceKnownType(typeof(ResponseDataBase<HttpRequestCfgDataUI>))]
-        ResponseDataBase<HttpResultCfg>  HttpResultCfgGet(string webname, int level, int count);
+        ResponseDataBase<HttpResponseCfg>  HttpResultCfgGet(string webname, int level, int count);
         [OperationContract]
         [DataContractFormat]
         [WebInvoke(UriTemplate = "HttpResult/HttpResultCfgSaveStatus", Method = "POST",

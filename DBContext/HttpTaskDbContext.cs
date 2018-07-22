@@ -35,7 +35,7 @@ namespace HttpTaskDbContext
         }
         public DbSet<HttpRequestCfg> HttpRequestCfg { get; set; }
         public DbSet<HttpRequestChildCfg> HttpRequestChildCfg { get; set; }
-        public DbSet<HttpResultCfg> HttpResultCfg { get; set; }
+        public DbSet<HttpResponseCfg> HttpResultCfg { get; set; }
         ~HttpTaskDBContext()
         {
             this.Dispose(true);

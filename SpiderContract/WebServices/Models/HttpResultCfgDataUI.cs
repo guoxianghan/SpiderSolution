@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SpiderContract.WebServices.Models
 {
     [DataContractAttribute(IsReference = true)]
-    public class HttpResultCfgDataUI : HttpResultCfg
+    public class HttpResultCfgDataUI : HttpResponseCfg
     {
     }
 }
